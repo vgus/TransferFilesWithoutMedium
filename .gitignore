@@ -1,0 +1,5 @@
+*.pdf
+*.png
+.TransferFilesWitoutMedium/
+*.txt
+*.zip
