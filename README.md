@@ -38,7 +38,7 @@ You have to:
 >python3 encode.py file.txt file.pdf
 
 9. Test the file. 
-9.1 If you can open the file, redo the process from point 4.
+   - If you can open the file, redo the process from point 4.
 
 # Declaration
 
