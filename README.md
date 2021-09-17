@@ -6,7 +6,7 @@ I was in the situtation where I need I need files from a computer (I have to dec
 
 Using this program you make a series of QRs to transfer a file using any QR cellphone app and recontruct the file in another machine.
 
-## Requieriments
+## Requirements
 
 This program use the following python3 and the next modules: 
 
