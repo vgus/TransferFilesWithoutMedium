@@ -8,12 +8,12 @@ Using this program you make a series of QRs to transfer a file using any QR cell
 
 ## Requirements
 
-This program use the following python3 and the next modules: 
+This program use python3 and the following modules: 
 
 - Pillow = 8.3.2
 - qrcode = 7.3
 
-To install these modules, you have to 
+To install these modules:
 
 ```
 pip install qrcode
