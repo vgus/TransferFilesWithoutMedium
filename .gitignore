@@ -1,5 +1,7 @@
 *.pdf
 *.png
-.TransferFilesWitoutMedium/
+.vscode/*
 *.txt
 *.zip
+secrets/*
+transEnv/*
