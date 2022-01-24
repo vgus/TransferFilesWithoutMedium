@@ -1,6 +1,7 @@
 import base64
-from MethodsGmail import getGmailEncodedMessages
+from MethodsGmail import getGmailEncodedMessages, setReadMessages
 from googleapiclient.errors import HttpError
+from sys import argv
 
 
 def main(emailSubject):
@@ -10,7 +11,7 @@ def main(emailSubject):
     problems = []
     lastContent = ''
     content = ''
-
+    print('Getting messages...')
     try:
         messages = getGmailEncodedMessages(emailSubject)
     except HttpError as error:
@@ -35,13 +36,21 @@ def main(emailSubject):
     if contentProblem:
         print('A problem ocurred:', *problems,sep='\n')
     else:
+        print("Triyin to make the file...")
         with open(emailSubject, "wb") as file:
             decoded_string = base64.b64decode(content)
             file.write(decoded_string)
+            print(f"File {emailSubject} created.")
+        try:
+            setReadMessages(list(map(lambda i: i['id'],messages)))
+            print("Unread and archive messages")
+        except HttpError as error:
+            print("It can't set Unread and archive messages:"+error)
+
 
 if __name__ == '__main__':
-    emailSubject = "19.zip"
-    
+    #emailSubject = "21.zip"
+    emailSubject = argv[1]
     main(emailSubject)
 
             
