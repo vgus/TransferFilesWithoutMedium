@@ -14,6 +14,9 @@ def main(emailSubject):
     print('Getting messages...')
     try:
         messages = getGmailEncodedMessages(emailSubject)
+        if not messages:
+            contentProblem = True
+            problems.append(f"No messages with subject {emailSubject} found.")
     except HttpError as error:
         contentProblem = True
         problems.append((f'An API error occurred: {error}'))
@@ -23,7 +26,10 @@ def main(emailSubject):
             problems.append('Content disordered')
         elif index == message['index'] and lastContent != message['info']:
             contentProblem = True
-            problems.append("Duplicate index and the message content is not similar")
+            problems.append(f"Duplicate index at {message['index']} and the message content is not similar")
+        elif index == message['index']:
+            print(f"Warning: Duplicate message at index {message['index']}")
+            index -= 1
         elif index+1 < message['index']:
             contentProblem = True
             problems.append('Missing element: '+str(index+1))
