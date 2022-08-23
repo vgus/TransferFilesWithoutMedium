@@ -16,8 +16,8 @@ This program use python3 and the following modules:
 To install these modules:
 
 ```
-pip install qrcode
-pip install pillow
+pip install --upgrade qrcode pillow google-api-python-client google-auth-httplib2 google-auth-oauthlib
+
 ```
 
 ## Use
@@ -40,7 +40,7 @@ You have to:
 9. Test the file. 
    - If you can open the file, redo the process from point 4.
 
-# Declaration
+# Disclaimer
 
 Make sure that you have the property and the right of the files you are transfering.
 
